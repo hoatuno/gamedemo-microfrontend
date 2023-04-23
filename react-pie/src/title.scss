@@ -1,0 +1,44 @@
+$tile-height: 70px;
+$tile-width: 70px;
+$tile-gap: 10px;
+.tiles {
+  flex: 1;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 70px);
+  grid-template-rows: repeat(auto-fit, 70px);
+  grid-gap: 10px;
+  overflow: visible;
+
+  .tile {
+    display: flex;
+    position: relative;
+
+    @for $i from 1 through 8 {
+      &.cols-#{$i} {
+        grid-column: span $i;
+        width: $i * $tile-width + ($i - 1) * $tile-gap;
+      }
+
+      &.rows-#{$i} {
+        grid-row: span $i;
+        height: $i * $tile-width + ($i - 1) * $tile-gap;
+      }
+    }
+
+    &:hover {
+      outline: rgba(18, 63, 114, 0.1) solid 4px;
+    }
+
+    .teaser {
+      font-size: 1.2em;
+      background: #ddeeff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
