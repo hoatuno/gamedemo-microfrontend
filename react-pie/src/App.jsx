@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 const MarioJump = lazy(() => import("./remotes/mario_jump"));
 const Vue2048 = lazy(() => import("./remotes/vue_2048"));
+const AntReact = lazy(() => import("./remotes/ant_react"));
 import GameTitle from "./components/GameTitle";
 
 import Sample from "./assets/sp.png";
@@ -22,6 +23,13 @@ const SuspenseVue = () => {
     </Suspense>
   );
 };
+const SuspenseAnt = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AntReact />
+    </Suspense>
+  );
+};
 function App() {
   return (
     <div>
@@ -30,6 +38,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="mario" element={<SuspenseReact />} />
           <Route path="vue2048" element={<SuspenseVue />} />
+          <Route path="ant-react" element={<SuspenseAnt />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -49,6 +58,9 @@ function Layout() {
           </GameTitle>
           <GameTitle path="/mario">
             <Image src={Mario} />
+          </GameTitle>
+          <GameTitle path="/ant-react">
+            <div>Ant React</div>
           </GameTitle>
         </div>
       </nav>
