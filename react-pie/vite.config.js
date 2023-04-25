@@ -10,6 +10,7 @@ export default defineConfig({
       remotes: {
         mario_jump: "http://localhost:5002/assets/remoteEntry.js",
         vue_2048: "http://localhost:5001/assets/remoteEntry.js",
+        ant_react: "http://localhost:5003/assets/remoteEntry.js",
         // add more remote pieces here
       },
     }),
